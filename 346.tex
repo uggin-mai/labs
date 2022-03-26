@@ -1,0 +1,73 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+
+\geometry{a4paper, left=35mm, right=35mm, top=30mm, bottom=30mm}
+\renewcommand{\baselinestretch}{0.9}
+\DeclareMathOperator*{\smallSum}{\textstyle\sum}
+\setcounter{page}{347}
+
+
+\cfoot{\rule{60}{0.1pt} \\ \thepage}
+\pagestyle{fancy}
+
+
+
+\begin{document}
+\begin{Large}
+\noindent\sffamily{\textbf{13.3. Формулы Тейлора \\ для основных элементарных функций \\}}
+
+\noindent 1. f(x) = sin\:x. Функция $sin\:x$ обладает производными всех порядков. Найдём для неё формулу Тейлора при \(x_0 = 0\), т.е. формулу Маклорена (13.8).
+Было доказано (см. п. 10.1), что
+$(sin\:x)^{(m)} = sin\:\Big(x + m\frac{\pi}{2}\Big)$, поэтому
+\renewcommand{\baselinestretch}{0.5}
+$$f^{(m)}(0) = sin\:\frac{m\pi}{2}= \scalebox{0.9}{$\begin{cases}
+		0 & \text{для $m = 2k$}, \\
+		(-1)^k & \text{для $m = 2k+1$},
+	\end{cases}$}
+	\text{$k = 0, 1, 2,..., $ (13.16)} $$
+
+\noindent и, согласно формуле $(13.5)$, 
+\begin{align*}
+ sin \: x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + ... + (-1)^n \frac{x^{2n+1}}{(2n+1)!}+o(x^{2n+2}),
+\end{align*}
+\noindent при $x \rightarrow 0, n = 0, 1, 2, ...,$ или, короче,
+\begin{align*} 
+sin \: x = \smallSum_{k=0}^{n} (-1)^k \frac{x^{2n+1}}{(2n+1)!}+o(x^{2n+2}) \text{ при } x \rightarrow 0
+\end{align*}
+
+\noindent Мы записали здесь остаточный член в виде $o(x^{2n+2}) $, а не в виде $o(x^{2n+1})$, так как следующий за последним выписанным слагаемым
+член многочлена Тейлора, в силу (13.16), равен нулю.
+
+2. $f(x) = cos\:x$. Как известно (см. п. 10.1),
+\renewcommand{\baselinestretch}{0.5}
+\begin{align*} 
+f^{(m)}(x) = cos\:(x + \frac{m\pi}{2})
+\end{align*} 
+поэтому
+$$f^{(m)}(0) = cos\:\frac{m\pi}{2}= \scalebox{0.9}{$\begin{cases}
+		0 & \text{для $m = 2k+1$}, \\
+		(-1)^k & \text{для $m = 2k$},
+	\end{cases}$}
+	\text{$k = 0, 1, 2,..., $} $$
+и
+\begin{align*}
+ cos \: x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + ... + (-1)^n \frac{x^{2n}}{(2n)!}+o(x^{2n+1}),
+\end{align*}
+при $x \rightarrow 0,$ или, короче,
+\begin{align*}
+cos \: x = \smallSum_{k=0}^{n} (-1)^k \frac{x^{2k}}{(2k)!}+o(x^{2n+1}) 
+\end{align*}
+при $x \rightarrow 0$, n = 0, 1, 2, ... .
+
+3. $f(x) = e^x$. Так как $(e^x)^{(n)} = e^x$, то $f^{(n)}(0) = 1, n = 0, 1, ... ,$ следовательно,
+\begin{equation} \tag{13.17}
+e^x  = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + ... + \frac{x^{n}}{n!}+o(x^n),
+\end{equation}
+\end{Large}
+\end{document}
